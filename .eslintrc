@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "react-app",
+    "airbnb",
+    "plugin:jsx-a11y/recommended",
+    "prettier",
+    "plugin:react/jsx-runtime"
+  ],
+  "plugins": [
+    "jsx-a11y",
+    "prettier"
+  ],
+  "rules": {
+    "semi": 2,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "linebreak-style": ["warn", "windows"],
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
+    "react/destructuring-assignment": 0,
+    "react/prop-types": 0,
+    "react/self-closing-comp": ["error", {
+    "component": true,
+    "html": false
+    }],
+    "no-plusplus": 0,
+    "react/no-array-index-key": 0,
+    "quotes": [2, "single"],
+    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+    "react/button-has-type": 0,
+    "func-names": 0
+  }
+}
