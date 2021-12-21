@@ -26,6 +26,8 @@
     "quotes": [2, "single"],
     "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     "react/button-has-type": 0,
-    "func-names": 0
+    "func-names": 0,
+    "react/function-component-definition": 0,
+    "click-events-have-key-events": 0
   }
 }

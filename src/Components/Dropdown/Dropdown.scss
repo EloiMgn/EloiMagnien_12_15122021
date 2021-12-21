@@ -1,0 +1,19 @@
+.dropdown{
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  &__menu{
+    background-color: black;
+    position: absolute;
+    margin-top: 50px;
+  }
+}
+
+.dropdownClose{
+  height: 0;
+  width: 0;
+}
+
+.hidden{
+  color: black;
+}

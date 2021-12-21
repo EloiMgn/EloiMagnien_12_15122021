@@ -1,17 +1,9 @@
-const fetchMockedData = () => {
-	const userId = [
-		12,
-		18
-	];
-	const url = `http://localhost:3000/user/${userId[0]}/performance`;
+const fetchMockedData = async (request) => {
 	
-	if (sessionStorage.getItem('data') === null) {
-		fetch(url)
-			.then((data) => data.json())
-			.then((datasObj) => {
-				sessionStorage.setItem('data', JSON.stringify(datasObj));
-			});
-	}
+	const url = 'http://localhost:8080';
+	const data = await fetch(url + request);
+	const dataObj = data.json();
+	return dataObj;
 };
 
 export default fetchMockedData;
