@@ -1,0 +1,28 @@
+.verticalNav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  width: 117px;
+  height: 100vh;
+  &__nav{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 165px;
+    &-link{
+      margin-bottom: 20px;
+    }
+  }
+  &__copyrights{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    color: #FFFFFF;
+    transform: rotate(-90deg);
+    width: 150px;
+    margin-bottom: 60px;
+  }
+}

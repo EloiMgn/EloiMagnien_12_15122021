@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './Components/App/App';
+import './index.scss';
+import './reset.css';
+import Routing from './Router/Router';
+// import fetchMockedData from './utils/utils';
+
+// fetchMockedData();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Routing />
   </React.StrictMode>,
   document.getElementById('root')
 );
