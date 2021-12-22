@@ -2,10 +2,32 @@
   display: flex;
   flex-direction: column;
   height: fit-content;
+  &hoover{
+    cursor: pointer;
+  }
   &__menu{
     background-color: black;
     position: absolute;
-    margin-top: 50px;
+    margin-top: 62px;
+    border-radius: 0 0 10px 10px;
+    &__link{
+      font-family: Roboto;
+      text-decoration: none;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 142.6%;
+      display: flex;
+      text-align: right;
+      color: #FFFFFF;
+      padding-right: 90px;
+      padding-left: 10px;
+      border-radius: 0 0 5px 5px;
+      &:hover{
+        cursor: pointer;
+        background-color: #FF0101;
+      }
+    }
   }
 }
 

@@ -11,3 +11,20 @@
     color: #FFFFFF;
   }
 }
+
+.weightChart{
+  background-color: #FBFBFB;
+  font-family: Roboto;
+  margin-top: 80px;
+  margin-left: 100px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+  &__title{
+    margin-left: 70px;
+    margin-bottom: -20px;
+  }
+}
+
+.recharts-legend-item-text{
+  color: #74798C;
+}

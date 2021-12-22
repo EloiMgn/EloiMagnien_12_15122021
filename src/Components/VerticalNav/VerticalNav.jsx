@@ -9,9 +9,7 @@ import './VerticalNav.scss';
  * return verticalNav component
  */
 
-const VerticalNav = function() {
-
-  return (
+const VerticalNav = () => (
     <div className="verticalNav">
       <nav className='verticalNav__nav'>
         <Link to="/yoga" className='yoga verticalNav__nav-link'><img src={Yoga} alt="Yoga logo" /></Link>
@@ -22,6 +20,5 @@ const VerticalNav = function() {
       <p className='verticalNav__copyrights'>Copiryght, SportSee 2022</p>
     </div>
   );
-};
 
 export default VerticalNav;
