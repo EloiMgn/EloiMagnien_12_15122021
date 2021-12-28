@@ -1,23 +1,28 @@
-.hello {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 48px;
-  line-height: 24px;
-  color: #000000;
-  margin: 70px 40px 40px 100px;
-
-  &-name {
-    color: #FF0101;
+.dashboardHeader{
+  &__hello {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 24px;
+    color: #000000;
+    margin: 70px 40px 40px 100px;
+  
+    &-name {
+      color: #FF0101;
+    }
+  }
+  
+  &__congrats {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+    margin-left: 100px;
   }
 }
 
-.congrats {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
-  color: #000000;
-  margin-left: 100px;
-}
+
+

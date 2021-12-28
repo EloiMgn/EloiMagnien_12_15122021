@@ -1,0 +1,58 @@
+.keyData {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 258px;
+  height: 124px;
+  background: #FBFBFB;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+
+  &__icon {
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin-right: 24px;
+    margin-left: 32px;
+    border-radius: 6px;
+
+    &__img {
+      width: 20px;
+    }
+  }
+
+  &__counter {
+    font-family: Roboto;
+    font-style: normal;
+
+    line-height: 24px;
+    &--number{
+      font-weight: bold;
+      font-size: 20px;
+      color: #282D30;
+    }
+    &--text{
+      color: #74798C;
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+}
+
+.energy {
+  background-color: #FBEAEA;
+}
+
+.chicken {
+  background-color: #E9F4FB;
+}
+
+.apple {
+  background-color: #FAF6E5;
+}
+
+.cheeseburger {
+  background-color: #FBEAEF;
+}

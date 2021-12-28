@@ -19,6 +19,7 @@ const CustomTooltip = ({ payload, active }) => {
 const Weight = (props) => {
 
   const data = props.userActivity;
+
   return(
     <div className='weightChart'>
       <h3 className='weightChart__title'>Activité quotidienne</h3>

@@ -13,7 +13,7 @@ const Routing = function() {
     <div className="mainDiv">
     <VerticalNav />
       <Routes>
-        <Route excact path="/" element={<Dashboard />} />
+        <Route excact path="/" element={<Dashboard id='12'/>} />
         <Route path="/18" element={<Dashboard id='18' />} />
         <Route path="/12" element={<Dashboard id='12' />} />
       </Routes>

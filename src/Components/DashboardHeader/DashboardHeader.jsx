@@ -7,9 +7,9 @@ const DashboardHeader = function(props) {
   const name = props.userFirstName;
 
   return (
-				<div>
-          <h1 className="hello" >Bonjour <strong className="hello-name">{name}</strong></h1>
-          <h2 className="congrats">Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
+				<div className='dashboardHeader'>
+          <h1 className="dashboardHeader__hello" >Bonjour <strong className="dashboardHeader__hello-name">{name}</strong></h1>
+          <h2 className="dashboardHeader__congrats">Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
 				</div>
   );
 };

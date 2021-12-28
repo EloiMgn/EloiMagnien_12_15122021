@@ -1,0 +1,9 @@
+.dashboard{
+  width: 100%;
+  &__datas{
+    display: flex;
+    justify-content: space-between;
+    height: 652px;
+    margin-top: 80px;
+  }
+}
