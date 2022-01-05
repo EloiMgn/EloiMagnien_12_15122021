@@ -1,3 +1,48 @@
-.objectives{
+.objectives {
   background-color: #FF0000;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+  max-width: 258px;
+  max-height: 263px;
+  &__title {
+    width: 147px;
+    margin: 10px auto -50px 10px;
+
+    &-text {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 24px;
+      color: #FFFFFF;
+      mix-blend-mode: normal;
+      opacity: 0.5;
+    }
+  }
+}
+
+.custom-tooltip {
+  background: #FFFFFF;
+  padding: 5px;
+
+  p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+  }
+}
+
+.recharts-cartesian-axis-ticks {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  color: #FFFFFF;
+  mix-blend-mode: normal;
+  opacity: 0.5;
 }

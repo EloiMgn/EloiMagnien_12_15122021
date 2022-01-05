@@ -16,6 +16,7 @@ const CustomTooltip = ({ payload, active }) => {
 };
 
 
+
 const Weight = (props) => {
 
   const data = props.userActivity;
@@ -37,8 +38,8 @@ const Weight = (props) => {
         <Label value="Pages of my website" />
         <CartesianGrid strokeDasharray="3 3"/>
         <XAxis dataKey="day" stroke="#9B9EAC" />
-        <YAxis dataKey="kilogram" yAxisId="right" orientation="right" stroke="#9B9EAC" type="roboto" />
-        <YAxis stroke="#FBFBFB"/>
+        <YAxis dataKey="kilogram" yAxisId="right" orientation="right" stroke="#9B9EAC" type="roboto" tickLine={false} axisLine={false}/>
+        <YAxis stroke="#FBFBFB" hide='true' tickLine={false} axisLine={false}/>
         <Tooltip content={<CustomTooltip />}/>
         <Legend iconType='circle' align='right' verticalAlign='top' iconSize={8} type="roboto" height={30}/>
         <Bar className="bar" dataKey="kilogram" radius={[3, 3, 0, 0]} fill="#282D30" barSize={7} name='Poids (kg)'/>

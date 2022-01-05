@@ -1,16 +1,16 @@
 import './MainDatas.scss';
 import Weight from './Weight/Weight';
 import Objectives from './Objectives/Objectives';
-import Radar from './Radar/Radar';
+import Perfs from './Perfs/Perfs';
 import KPI from './KPI/KPI';
 
 
-const MainDatas = ({userActivity, userSessions}) => (
+const MainDatas = ({userActivity, userSessions, userPerfs}) => (
     <div className='mainDatas'>
       <Weight userActivity={userActivity} />
       <div className='mainDatas__secundaryCharts'>
-      <Objectives userSessions={userSessions}/>
-        <Radar />
+      <Objectives userSessions={userSessions} />
+      <Perfs userPerfs={userPerfs} />
         <KPI />
       </div>
     </div>

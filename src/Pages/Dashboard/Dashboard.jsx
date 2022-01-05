@@ -11,6 +11,7 @@ const Dashboard = () => {
   const [user, setUser] = useState('');
   const [activity, setActivity] = useState('');
   const [sessions, setSessions] = useState('');
+  const [perfs, setPerfs] = useState('');
 
   const { id } = useParams();
 
@@ -18,9 +19,11 @@ const Dashboard = () => {
       const userData = await fetchMockedData(`/user/${id}`); 
       const userActivity = await fetchMockedData(`/user/${id}/activity`);
       const userSessions = await fetchMockedData(`/user/${id}/average-sessions`);
+      const userPerfs = await fetchMockedData(`/user/${id}/performance`);
           setUser(userData.data);  
           setActivity(userActivity.data.sessions);
           setSessions(userSessions.data.sessions);
+          setPerfs(userPerfs.data);
   };
 
   useEffect(() => {
@@ -35,6 +38,7 @@ const Dashboard = () => {
           <MainDatas 
           userActivity={activity}
           userSessions={sessions}
+          userPerfs={perfs}
           />
           <KeyDatas 
           keyDataCalories={user.keyData.calorieCount} 
