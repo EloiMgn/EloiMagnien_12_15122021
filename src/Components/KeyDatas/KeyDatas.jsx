@@ -1,4 +1,5 @@
 import './KeyDatas.scss';
+import PropTypes from 'prop-types';
 import KeyDataContainer from './KeyDataContainer/KeyDataContainer';
 import Energy from '../../utils/Assets/energy.svg';
 import Chicken from '../../utils/Assets/chicken.svg';
@@ -22,5 +23,12 @@ const KeyDatas = ({keyDataCalories, keyDataProtein, keyDataLipids, keyDataCarboh
     </div>
     
   );
+
+  KeyDatas.propTypes = {
+    keyDataCalories: PropTypes.number.isRequired,
+    keyDataProtein: PropTypes.number.isRequired,
+    keyDataLipids: PropTypes.number.isRequired,
+    keyDataCarbohydrates: PropTypes.number.isRequired,
+  };
 
 export default KeyDatas;

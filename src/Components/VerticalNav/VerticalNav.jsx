@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Yoga from '../../utils/Assets/yoga_icon.svg';
 import Swim from '../../utils/Assets/swim_icon.svg';
 import Cycle from '../../utils/Assets/cycle_icon.svg';
@@ -6,9 +7,10 @@ import Dumbbell from '../../utils/Assets/dumbbell_icon.svg';
 import './VerticalNav.scss';
 
 /**
- * return verticalNav component
+ * Return react component Verticalnav based on user's id 
+ * @param { string } id
+ * @returns { HTMLElement } 
  */
-
 const VerticalNav = ({id}) => {
 if(id) {
   return (
@@ -24,6 +26,14 @@ if(id) {
     );
   };
   return null;
+};
+
+VerticalNav.propTypes = {
+  id: PropTypes.string,
+};
+
+VerticalNav.defaultProps = {
+  id: '12-Karl',
 };
 
 export default VerticalNav;

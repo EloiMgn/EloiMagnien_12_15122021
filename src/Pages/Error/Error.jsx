@@ -4,7 +4,10 @@ import Header from '../../Components/Header/Header';
 import VerticalNav from '../../Components/VerticalNav/VerticalNav';
 
 
-
+/**
+ * Return react component Error page in case of wrong path
+ * @returns { HTMLElement } 
+ */
 const Error = () => (
 <div>
   <Header />

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import './Dashboard.scss';
 import DashboardHeader from '../../Components/DashboardHeader/DashboardHeader';
 import MainDatas from '../../Components/MainDatas/MainDatas';
@@ -9,6 +10,10 @@ import Welcome from '../Welcome/Welcome';
 import Header from '../../Components/Header/Header';
 import VerticalNav from '../../Components/VerticalNav/VerticalNav';
 
+/**
+ * Return react component Dashboard based on user's id 
+ * @returns { HTMLElement } 
+ */
 const Dashboard = () => {
   const [user, setUser] = useState('');
   const [activity, setActivity] = useState('');
@@ -17,9 +22,13 @@ const Dashboard = () => {
 
   const { id } = useParams();
 
+  /**
+   * Check if "id" is valid, launch fetch datas from API and set states values
+   */
   const fetchData = async() => {
 
     const regex= /[0-9]{1,3}-[A-Z]?[a-z]*/;
+
    if(id.search(regex) >= 0) {
      const idx = id.split('-', 1);
      const userData = await fetchMockedData(`/user/${idx}`); 

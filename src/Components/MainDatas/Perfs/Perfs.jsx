@@ -1,7 +1,13 @@
 import './Perfs.scss';
+import PropTypes from 'prop-types';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import {capitalizeFirstLetter} from '../../../utils/utils';
 
+/**
+ * Return react component RadarChart based on user's performances
+ * @param { object } userPerfs 
+ * @returns { HTMLElement } 
+ */
 const Perfs = ({userPerfs}) => {
 const newPerfs =[];
   const PerfsKindsChanger = () => {
@@ -25,5 +31,10 @@ const newPerfs =[];
     </ResponsiveContainer> 
     </div>
   );
-   };
+};
+
+Perfs.propTypes = {
+  userPerfs: PropTypes.oneOfType([PropTypes.object]).isRequired,
+};
+
 export default Perfs;

@@ -11,24 +11,35 @@
     "prettier"
   ],
   "rules": {
-    "semi": 2,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "linebreak-style": ["warn", "windows"],
-    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
-    "react/destructuring-assignment": 0,
-    "react/prop-types": 0,
-    "react/self-closing-comp": ["error", {
-    "component": true,
-    "html": false
+    "semi": 1,
+    "react/jsx-filename-extension": [2, {
+      "extensions": [".js", ".jsx"]
     }],
+    "linebreak-style": ["warn", "windows"],
+    "react/prefer-stateless-function": [0, {
+      "ignorePureComponents": true
+    }],
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": false
+    }],
+    "quotes": [1, "single"],
+    "no-unused-vars": ["warn", {
+      "vars": "all",
+      "args": "after-used",
+      "ignoreRestSiblings": false
+    }],
+    "react/prop-types": 1,
+    "react/destructuring-assignment": 0,
     "no-plusplus": 0,
     "react/no-array-index-key": 0,
-    "quotes": [2, "single"],
-    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     "react/button-has-type": 0,
     "func-names": 0,
     "react/function-component-definition": 0,
     "click-events-have-key-events": 0,
-    "react-hooks/exhaustive-deps": 0
+    "react-hooks/exhaustive-deps": 0,
+    "react/require-default-props": 0,
+    "react/forbid-prop-types": 0
+
   }
 }

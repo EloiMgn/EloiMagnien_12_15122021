@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import './Dropdown.scss';
 
-const Dropdown = function() {
-
-  return (
+/**
+ * Return react component Dropdown 
+ * @returns { HTMLElement } 
+ */
+const Dropdown = () => (
     <nav>
       <ul>
         <li className="menu-deroulant">
@@ -16,6 +18,5 @@ const Dropdown = function() {
       </ul>
     </nav>
   );
-};
 
 export default Dropdown;

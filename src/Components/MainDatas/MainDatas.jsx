@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './MainDatas.scss';
 import Weight from './Weight/Weight';
 import Objectives from './Objectives/Objectives';
@@ -6,7 +7,7 @@ import KPI from './KPI/KPI';
 
 /**
  * Return react component MainDatas 
- * @param { * } userActivity
+ * @param { object } userActivity
  * @param { object } userSessions
  * @param { object } userPerfs
  * @param { number } userScore
@@ -22,5 +23,12 @@ const MainDatas = ({userActivity, userSessions, userPerfs, userScore}) => (
       </div>
     </div>
   );
+
+  MainDatas.propTypes = {
+    userActivity: PropTypes.oneOfType([PropTypes.object]).isRequired,
+    userSessions: PropTypes.oneOfType([PropTypes.object]).isRequired,
+    userPerfs: PropTypes.oneOfType([PropTypes.object]).isRequired,
+    userScore: PropTypes.number.isRequired,
+  };
 
 export default MainDatas;

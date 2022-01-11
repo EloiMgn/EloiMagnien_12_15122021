@@ -1,4 +1,5 @@
 import './Objectives.scss';
+import PropTypes from 'prop-types';
 import { LineChart, Line, XAxis, Tooltip } from 'recharts';
 
 const CustomTooltip = ({ active, payload}) => {
@@ -13,6 +14,10 @@ const CustomTooltip = ({ active, payload}) => {
   return null;
 };
 
+CustomTooltip.propTypes = {
+  payload: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  active: PropTypes.bool.isRequired,
+};
 
 const weekDays = [
   {
@@ -54,13 +59,16 @@ const weekDays = [
 
 
 /**
- * Return react component Objective lineChart
+ * Return react component Objective lineChart based on the user's weekly sessions
  * @param {Object} userSessions 
  * @returns {HTMLElement}
  */
 const Objectives = ({userSessions}) => {
   const sessions = [];
 
+  /**
+   * Function that change day index to the first letter of the corresponding day
+   */
   const sessionsDayChanger = () => {
     if(userSessions){
       userSessions.forEach(element => {
@@ -74,7 +82,6 @@ const Objectives = ({userSessions}) => {
   };
 
   sessionsDayChanger();
-
 
   return (
   <div className='objectives'>
@@ -99,6 +106,10 @@ const Objectives = ({userSessions}) => {
           </LineChart>
       </div>
   );
+};
+
+Objectives.propTypes = {
+  userSessions: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 export default Objectives;

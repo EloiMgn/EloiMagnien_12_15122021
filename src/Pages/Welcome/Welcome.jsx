@@ -2,7 +2,10 @@ import { Link } from 'react-router-dom';
 import './Welcome.scss';
 
 
-
+/**
+ * Return react component Welcome page for the landing path
+ * @returns { HTMLElement } 
+ */
 const Welcome = () => (
   <div className='welcome'>
     <div className='welcome__text'>

@@ -1,17 +1,24 @@
-/* eslint-disable jsx-a11y/mouse-events-have-key-events */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import PropTypes from 'prop-types';
 import './DashboardHeader.scss';
 
-const DashboardHeader = function(props) {
-  const name = props.userFirstName;
-
-  return (
+/**
+ * Return react component DashboardHeader depending on the user's name
+ * @param { string } userFirstName 
+ * @returns { HTMLElement } 
+ */
+const DashboardHeader = ({userFirstName}) => (
 				<div className='dashboardHeader'>
-          <h1 className="dashboardHeader__hello" >Bonjour <strong className="dashboardHeader__hello-name">{name}</strong></h1>
+          <h1 className="dashboardHeader__hello" >Bonjour <strong className="dashboardHeader__hello-name">{userFirstName}</strong></h1>
           <h2 className="dashboardHeader__congrats">Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
 				</div>
   );
+
+DashboardHeader.propTypes = {
+  userFirstName: PropTypes.string,
+};
+
+DashboardHeader.defaultProps = {
+  userFirstName: 'name',
 };
 
 export default DashboardHeader;

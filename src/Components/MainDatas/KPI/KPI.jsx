@@ -1,10 +1,11 @@
 import './KPI.scss';
+import PropTypes from 'prop-types';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 
 /**
- * Return react component KPI radialChart
- * @param {Number} userScore Score of the user objective
- * @returns {HTMLElement}
+ * Return react component KPI radialChart depending on the user's score
+ * @param { Number } userScore Score of the user objective
+ * @returns { HTMLElement }
  */
 const KPI = ({userScore}) => {
 
@@ -55,5 +56,8 @@ const KPI = ({userScore}) => {
   );
 };
 
+KPI.propTypes = {
+  userScore: PropTypes.number.isRequired,
+};
 
-    export default KPI;
+export default KPI;

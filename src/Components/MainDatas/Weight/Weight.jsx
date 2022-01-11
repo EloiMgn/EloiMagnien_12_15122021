@@ -1,7 +1,13 @@
-// import PureComponent from 'react';
+import PropTypes from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
 import './Weight.scss';
 
+/**
+ * Return react component Tooltip if selection is active
+ * @param { object } payload 
+ * @param { boolean } active 
+ * @returns {HTMLElement} 
+ */
 const CustomTooltip = ({ payload, active }) => {
   if (active) {
     return (
@@ -15,19 +21,23 @@ const CustomTooltip = ({ payload, active }) => {
   return null;
 };
 
+CustomTooltip.propTypes = {
+  payload: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  active: PropTypes.bool.isRequired,
+};
 
-
-const Weight = (props) => {
-
-  const data = props.userActivity;
-
-  return(
+/**
+ * Return react component barChart based on user's weight
+ * @param { object } userActivity 
+ * @returns {HTMLElement} 
+ */
+const Weight = ({userActivity}) => (
     <div className='weightChart'>
       <h3 className='weightChart__title'>Activité quotidienne</h3>
       <BarChart
           width={835}
           height={320}
-          data={data}
+          data={userActivity}
           margin={{
             top: 5,
             right: 30,
@@ -48,6 +58,9 @@ const Weight = (props) => {
     </div>
     
   );
+
+Weight.propTypes = {
+  userActivity: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 export default Weight;

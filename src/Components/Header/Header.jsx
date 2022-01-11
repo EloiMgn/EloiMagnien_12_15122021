@@ -1,10 +1,13 @@
 import './Header.scss';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Logo from '../../utils/Assets/logo.svg';
 import Dropdown from '../Dropdown/Dropdown';
 
 /**
- * return Header component
+ * Return react component Header based on user's id
+ * @param { string } id
+ * @returns { HTMLElement } 
  */
 const Header = ({id}) => {
 if(id){
@@ -23,5 +26,11 @@ if(id){
 	return null;
 };
 
-export default Header;
+Header.propTypes = {
+	id: PropTypes.string,
+};
 
+Header.defaultProps = {
+  id: '12-Karl',
+};
+export default Header;
