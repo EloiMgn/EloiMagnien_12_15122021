@@ -1,74 +1,49 @@
 import './KPI.scss';
-import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie,  Cell } from 'recharts';
+import { useState, useEffect } from 'react';
 
 const data = [
-  {
-    name: '18-24',
-    uv: 31.47,
-    pv: 2400,
-    fill: '#8884d8',
-  },
-  {
-    name: '25-29',
-    uv: 26.69,
-    pv: 4567,
-    fill: '#83a6ed',
-  },
-  {
-    name: '30-34',
-    uv: 15.69,
-    pv: 1398,
-    fill: '#8dd1e1',
-  },
-  {
-    name: '35-39',
-    uv: 8.22,
-    pv: 9800,
-    fill: '#82ca9d',
-  },
-  {
-    name: '40-49',
-    uv: 8.63,
-    pv: 3908,
-    fill: '#a4de6c',
-  },
-  {
-    name: '50+',
-    uv: 2.63,
-    pv: 4800,
-    fill: '#d0ed57',
-  },
-  {
-    name: 'unknow',
-    uv: 6.67,
-    pv: 4800,
-    fill: '#ffc658',
-  },
+  { name: 'Group A', value: 0 },
+  { name: 'Group B', value: 0 },
 ];
+const COLORS = ['#FF0000', '#000000'];
 
-const style = {
-  top: '50%',
-  right: 0,
-  transform: 'translate(0, -50%)',
-  lineHeight: '24px',
-};
 
-const KPI = () => (
-    <div className='KPI'>
-      <ResponsiveContainer width="100%" height="100%">
-        <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={10} data={data}>
-          <RadialBar
-            minAngle={15}
-            label={{ position: 'insideStart', fill: '#fff' }}
-            background
-            clockWise
-            dataKey="uv"
-          />
-          <Legend iconSize={10} layout="vertical" verticalAlign="middle" wrapperStyle={style} />
-        </RadialBarChart>
-      </ResponsiveContainer>
-    </div>
-  );
+const KPI = (userScore) => {
+  const [score, setScore] = useState('');
 
+  const modifyScore = () =>{
+    setScore(userScore.userScore);
+    data[0].value = score;
+    data[1].value = 1-score;
+  };
+  useEffect(() => {
+    modifyScore();
+    // console.log(data);
+  }, [userScore]);
+
+  return (
+        <div className='KPI'>
+        <PieChart width={258} height={263} >
+          <Pie
+            data={data}
+            cx={150}
+            cy={100}
+            startAngle={90}
+            endAngle={450}
+            innerRadius={70}
+            outerRadius={80}
+            fill="#FF0000"
+            paddingAngle={0}
+            dataKey="value"
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+        </PieChart>
+        </div>
+      );
+}; 
 
 export default KPI;

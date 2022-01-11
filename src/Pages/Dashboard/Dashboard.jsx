@@ -6,6 +6,8 @@ import MainDatas from '../../Components/MainDatas/MainDatas';
 import KeyDatas from '../../Components/KeyDatas/KeyDatas';
 import fetchMockedData from '../../utils/utils';
 import Welcome from '../Welcome/Welcome';
+import Header from '../../Components/Header/Header';
+import VerticalNav from '../../Components/VerticalNav/VerticalNav';
 
 const Dashboard = () => {
   const [user, setUser] = useState('');
@@ -16,14 +18,18 @@ const Dashboard = () => {
   const { id } = useParams();
 
   const fetchData = async() => {
-      const userData = await fetchMockedData(`/user/${id}`); 
-      const userActivity = await fetchMockedData(`/user/${id}/activity`);
-      const userSessions = await fetchMockedData(`/user/${id}/average-sessions`);
-      const userPerfs = await fetchMockedData(`/user/${id}/performance`);
-          setUser(userData.data);  
-          setActivity(userActivity.data.sessions);
-          setSessions(userSessions.data.sessions);
-          setPerfs(userPerfs.data);
+
+    const regex= /[0-9]+/;
+   if(id.search(regex) >= 0) {
+     const userData = await fetchMockedData(`/user/${id}`); 
+     const userActivity = await fetchMockedData(`/user/${id}/activity`);
+     const userSessions = await fetchMockedData(`/user/${id}/average-sessions`);
+     const userPerfs = await fetchMockedData(`/user/${id}/performance`);
+         setUser(userData.data);  
+         setActivity(userActivity.data.sessions);
+         setSessions(userSessions.data.sessions);
+         setPerfs(userPerfs.data);
+   } 
   };
 
   useEffect(() => {
@@ -32,6 +38,10 @@ const Dashboard = () => {
 
   if (user){
       return (
+        <div>
+          <Header id={id}/>
+        <div className='mainDiv'>
+          <VerticalNav id={id}/>
         <div className="dashboard">
           <DashboardHeader userFirstName={user.userInfos.firstName}/>
           <div className='dashboard__datas'>
@@ -39,6 +49,7 @@ const Dashboard = () => {
           userActivity={activity}
           userSessions={sessions}
           userPerfs={perfs}
+          userScore={user.score}
           />
           <KeyDatas 
           keyDataCalories={user.keyData.calorieCount} 
@@ -47,6 +58,8 @@ const Dashboard = () => {
           keyDataCarbohydrates={user.keyData.carbohydrateCount} 
           />
           </div>
+        </div>
+        </div>
         </div>
       );
     } return (

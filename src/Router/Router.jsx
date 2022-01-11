@@ -1,23 +1,17 @@
 /* eslint-disable import/no-named-as-default */
 import { BrowserRouter as Router, Routes, Route }from 'react-router-dom';
-import Header from '../Components/Header/Header';
-import VerticalNav from '../Components/VerticalNav/VerticalNav';
 import Dashboard from '../Pages/Dashboard/Dashboard';
+import Welcome from '../Pages/Welcome/Welcome';
+import Error from '../Pages/Error/Error';
 
-const Routing = function() {
-
-  return (
+const Routing = () => (
     <Router className="index">
-    <Header />
-    <div className="mainDiv">
-    <VerticalNav />
       <Routes>
-        <Route exact path="/" element={<Dashboard id='12'/>} />
+        <Route exact path="/" element={<Welcome />} />
         <Route path="/:id" element={<Dashboard />} />
+        <Route path="/:id/*" element={<Error />} />
       </Routes>
-    </div>
   </Router>
   );
-};
 
 export default Routing;
