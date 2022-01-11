@@ -1,49 +1,59 @@
 import './KPI.scss';
-import { PieChart, Pie,  Cell } from 'recharts';
-import { useState, useEffect } from 'react';
+import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 
-const data = [
-  { name: 'Group A', value: 0 },
-  { name: 'Group B', value: 0 },
-];
-const COLORS = ['#FF0000', '#000000'];
+/**
+ * Return react component KPI radialChart
+ * @param {Number} userScore Score of the user objective
+ * @returns {HTMLElement}
+ */
+const KPI = ({userScore}) => {
 
+  const data = [
+    {
+      uv: 1,
+      fill: '#FFFFFF',
+    },
+    {
+      uv: 1,
+      fill: '#FFFFFF',
+    },
+    {
+      uv: 1,
+      fill: '#FFFFFF',
+    },
+    {
+      uv: 1,
+      fill: '#FFFFFF',
+    },
+    {
+      uv: userScore,
+      fill: '#FF0000',
+    },
+    
+  ];
 
-const KPI = (userScore) => {
-  const [score, setScore] = useState('');
-
-  const modifyScore = () =>{
-    setScore(userScore.userScore);
-    data[0].value = score;
-    data[1].value = 1-score;
-  };
-  useEffect(() => {
-    modifyScore();
-    // console.log(data);
-  }, [userScore]);
-
+  
   return (
-        <div className='KPI'>
-        <PieChart width={258} height={263} >
-          <Pie
-            data={data}
-            cx={150}
-            cy={100}
-            startAngle={90}
-            endAngle={450}
-            innerRadius={70}
-            outerRadius={80}
-            fill="#FF0000"
-            paddingAngle={0}
-            dataKey="value"
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-        </PieChart>
+    <div className='KPI'>
+      <div className='KPI__title'>
+        <h3 className='KPI__title-text'>Score</h3>
+      </div>
+        <ResponsiveContainer width='100%' height='100%'>
+          <RadialBarChart startAngle={90} endAngle={460} cx="50%" cy="50%" innerRadius="20%" outerRadius="80%" barSize={10} data={data}>
+            <RadialBar
+              // background={false}
+              clockWise
+              dataKey="uv"
+            />
+          </RadialBarChart>
+        </ResponsiveContainer>
+        <div className='KPI__description'>
+          <h2 className='KPI__description__percent'>{userScore*100}%</h2>
+          <h3 className='KPI__description__text'>de votre objectif</h3>
         </div>
-      );
-}; 
+    </div>
+  );
+};
 
-export default KPI;
+
+    export default KPI;

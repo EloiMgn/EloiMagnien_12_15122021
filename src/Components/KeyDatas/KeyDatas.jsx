@@ -5,7 +5,14 @@ import Chicken from '../../utils/Assets/chicken.svg';
 import Cheeseburger from '../../utils/Assets/cheeseburger.svg';
 import Apple from '../../utils/Assets/apple.svg';
 
-
+/**
+ * Return react component KeyDatas 
+ * @param { number } keyDataCalories
+ * @param { number } keyDataProtein
+ * @param { number } keyDataLipids
+ * @param { number } keyDataCarbohydrates
+ * @returns { HTMLElement } 
+ */
 const KeyDatas = ({keyDataCalories, keyDataProtein, keyDataLipids, keyDataCarbohydrates}) => (
     <div className='keyData__container'>
       <KeyDataContainer data={keyDataCalories} icon={Energy} name='Calories' unit='kCal' iconName='energy'/>

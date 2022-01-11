@@ -9,8 +9,8 @@ const Dropdown = function() {
         <li className="menu-deroulant">
         <Link to="/">Profil</Link>
           <ul className="sous-menu">
-            <li><Link to="/12" >Karl</Link></li>
-            <li><Link to="/18" >Cecilia</Link></li>
+            <li><Link to="/12-Karl" >Karl</Link></li>
+            <li><Link to="/18-Cecilia" >Cecilia</Link></li>
           </ul>
         </li>
       </ul>

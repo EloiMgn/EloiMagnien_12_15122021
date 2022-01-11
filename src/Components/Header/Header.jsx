@@ -7,7 +7,6 @@ import Dropdown from '../Dropdown/Dropdown';
  * return Header component
  */
 const Header = ({id}) => {
-console.log(id);
 if(id){
 	return (
 				<header className="header">

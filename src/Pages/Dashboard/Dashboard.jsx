@@ -19,12 +19,13 @@ const Dashboard = () => {
 
   const fetchData = async() => {
 
-    const regex= /[0-9]+/;
+    const regex= /[0-9]{1,3}-[A-Z]?[a-z]*/;
    if(id.search(regex) >= 0) {
-     const userData = await fetchMockedData(`/user/${id}`); 
-     const userActivity = await fetchMockedData(`/user/${id}/activity`);
-     const userSessions = await fetchMockedData(`/user/${id}/average-sessions`);
-     const userPerfs = await fetchMockedData(`/user/${id}/performance`);
+     const idx = id.split('-', 1);
+     const userData = await fetchMockedData(`/user/${idx}`); 
+     const userActivity = await fetchMockedData(`/user/${idx}/activity`);
+     const userSessions = await fetchMockedData(`/user/${idx}/average-sessions`);
+     const userPerfs = await fetchMockedData(`/user/${idx}/performance`);
          setUser(userData.data);  
          setActivity(userActivity.data.sessions);
          setSessions(userSessions.data.sessions);
