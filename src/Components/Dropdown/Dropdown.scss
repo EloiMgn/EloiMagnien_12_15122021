@@ -22,7 +22,7 @@ nav {
       &:hover > a{
         color: #FF0101;
       }
-      > a {
+      > span {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -45,6 +45,9 @@ nav {
   }
 }
 
+.dropdown__link:hover{
+  text-decoration: none;
+}
 
 li a {
   text-decoration: none;

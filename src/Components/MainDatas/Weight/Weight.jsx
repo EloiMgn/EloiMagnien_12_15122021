@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
 import './Weight.scss';
 
 /**
@@ -22,8 +22,8 @@ const CustomTooltip = ({ payload, active }) => {
 };
 
 CustomTooltip.propTypes = {
-  payload: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  active: PropTypes.bool.isRequired,
+  payload: PropTypes.oneOfType([PropTypes.object]),
+  active: PropTypes.bool,
 };
 
 /**
@@ -31,33 +31,54 @@ CustomTooltip.propTypes = {
  * @param { object } userActivity 
  * @returns {HTMLElement} 
  */
-const Weight = ({userActivity}) => (
-    <div className='weightChart'>
-      <h3 className='weightChart__title'>Activité quotidienne</h3>
-      <BarChart
-          width={835}
-          height={320}
-          data={userActivity}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-          >
-        <Label value="Pages of my website" />
-        <CartesianGrid strokeDasharray="3 3"/>
-        <XAxis dataKey="day" stroke="#9B9EAC" />
-        <YAxis dataKey="kilogram" yAxisId="right" orientation="right" stroke="#9B9EAC" type="roboto" tickLine={false} axisLine={false}/>
-        <YAxis stroke="#FBFBFB" hide='true' tickLine={false} axisLine={false}/>
-        <Tooltip content={<CustomTooltip />}/>
-        <Legend iconType='circle' align='right' verticalAlign='top' iconSize={8} type="roboto" height={30}/>
-        <Bar className="bar" dataKey="kilogram" radius={[3, 3, 0, 0]} fill="#282D30" barSize={7} name='Poids (kg)'/>
-        <Bar dataKey="calories" fill="#E60000" radius={[3, 3, 0, 0]} name='Calories brûlées (Kcal)' barSize={7} maxBarSize={100}/>
-      </BarChart>
-    </div>
-    
-  );
+const Weight = ({userActivity}) => {
+  const data = [];
+
+    /**
+   * Function that change day index to the index of the day itself
+   */
+  const modifyDay = () => {
+    if(userActivity){
+      userActivity.forEach(element => {
+        data.push({
+          day: `${element.day.split('-')[2].split('')[1]}`, 
+          kilogram: element.kilogram, 
+          calories: element.calories
+        });
+      });
+    }
+  };
+  modifyDay();
+
+  return (
+      <div className='weightChart'>
+        <h3 className='weightChart__title'>Activité quotidienne</h3>
+        {/* <ResponsiveContainer width='100%' height='100%'> */}
+        <BarChart
+            width={650}
+            height={330}
+            data={data}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+            >
+          <CartesianGrid strokeDasharray="3 3"/>
+          <XAxis dataKey="day" stroke="#9B9EAC" />
+          {/* <YAxis dataKey="kilogram" yAxisId="right" orientation="right" stroke="#9B9EAC" type="roboto"  axisLine={false}/> */}
+          <YAxis stroke="#FBFBFB" hide='true' tickLine={false} axisLine={false}/>
+          <Tooltip content={<CustomTooltip />}/>
+          <Legend iconType='circle' verticalAlign='top' iconSize={8} type="roboto" height={30}/>
+          <Bar className="bar" dataKey="kilogram" radius={[3, 3, 0, 0]} fill="#282D30" barSize={7} name='Poids (kg)'/>
+          <Bar dataKey="calories" fill="#E60000" radius={[3, 3, 0, 0]} name='Calories brûlées (Kcal)' barSize={7} maxBarSize={100}/>
+        </BarChart>
+        {/* </ResponsiveContainer> */}
+      </div>
+      
+    );
+};
 
 Weight.propTypes = {
   userActivity: PropTypes.oneOfType([PropTypes.object]).isRequired,

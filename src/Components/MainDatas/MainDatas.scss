@@ -1,10 +1,20 @@
 .mainDatas{
   display: flex;
   flex-direction: column;
-  margin-left: 100px;
+  justify-content: space-between;
+  height: 100vh;
+  width: 66.6%;
   &__secundaryCharts{
     margin-top: 30px;
     display: flex;
     justify-content: space-between;
   }
+}
+
+.secundaryCharts{
+  margin: 0 2%;
+}
+
+.responsive__container{
+  max-height: 263px;
 }

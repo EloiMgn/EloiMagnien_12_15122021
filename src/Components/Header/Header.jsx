@@ -27,10 +27,7 @@ if(id){
 };
 
 Header.propTypes = {
-	id: PropTypes.string,
+	id: PropTypes.string.isRequired,
 };
 
-Header.defaultProps = {
-  id: '12-Karl',
-};
 export default Header;

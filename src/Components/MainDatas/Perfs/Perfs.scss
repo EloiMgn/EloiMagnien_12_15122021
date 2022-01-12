@@ -1,6 +1,10 @@
 .performances{
-  width: 258px;
-  height: 263px;
+  max-width: 258px;
+  max-height: 263px;
+  @media screen and (max-width:1024px){ 
+    max-width: 200px;
+    max-height: 230px;
+  }
   background: #282D30;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
   border-radius: 5px;
@@ -10,6 +14,7 @@ width: fit-content;
 }
 
 .recharts-polar-angle-axis-ticks {
+  text-transform: capitalize;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;

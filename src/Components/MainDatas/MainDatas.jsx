@@ -11,7 +11,7 @@ import KPI from './KPI/KPI';
  * @param { object } userSessions
  * @param { object } userPerfs
  * @param { number } userScore
- * @returns {Function} 
+ * @returns { JSX.Element } 
  */
 const MainDatas = ({userActivity, userSessions, userPerfs, userScore}) => (
     <div className='mainDatas'>

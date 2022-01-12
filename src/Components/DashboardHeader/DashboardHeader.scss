@@ -1,4 +1,5 @@
 .dashboardHeader{
+  width: 100%;
   &__hello {
     font-family: Roboto;
     font-style: normal;
@@ -6,8 +7,8 @@
     font-size: 48px;
     line-height: 24px;
     color: #000000;
-    margin: 70px 40px 40px 100px;
-  
+    margin: 70px 40px 40px 0px;
+    width: 90%;
     &-name {
       color: #FF0101;
     }
@@ -20,7 +21,8 @@
     font-size: 18px;
     line-height: 24px;
     color: #000000;
-    margin-left: 100px;
+    margin-left: 0px;
+    width: 90%;
   }
 }
 

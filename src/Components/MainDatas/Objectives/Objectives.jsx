@@ -1,6 +1,6 @@
 import './Objectives.scss';
 import PropTypes from 'prop-types';
-import { LineChart, Line, XAxis, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 const CustomTooltip = ({ active, payload}) => {
   if (active && payload && payload.length) {
@@ -15,8 +15,8 @@ const CustomTooltip = ({ active, payload}) => {
 };
 
 CustomTooltip.propTypes = {
-  payload: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  active: PropTypes.bool.isRequired,
+  payload: PropTypes.oneOfType([PropTypes.object]),
+  active: PropTypes.bool,
 };
 
 const weekDays = [
@@ -84,27 +84,27 @@ const Objectives = ({userSessions}) => {
   sessionsDayChanger();
 
   return (
-  <div className='objectives'>
-    <div className='objectives__title'>
-      <h3 className='objectives__title-text'>Durée moyenne des sessions</h3>
-    </div>
-          <LineChart
-            width={258}
-            height={263}
-            data={sessions}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-
-            <XAxis dataKey="day" stroke='#FFFFFF'  tickLine={false} axisLine={false}/>
-            <Tooltip content={<CustomTooltip />}/>
-            <Line type="monotone" dataKey="sessionLength" stroke="#FFFFFF"  dot={false}/>
-          </LineChart>
+    <div className='objectives secundaryCharts'>
+      <div className='objectives__title'>
+        <h3 className='objectives__title-text'>Durée moyenne des sessions</h3>
       </div>
+      <ResponsiveContainer className='responsive__container' width='100%' height='100%' >
+        <LineChart
+          width={258}
+          height={263}
+          data={sessions}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}>
+        <XAxis dataKey="day" stroke='#FFFFFF'  tickLine={false} axisLine={false}/>
+        <Tooltip content={<CustomTooltip />}/>
+        <Line type="monotone" dataKey="sessionLength" stroke="#FFFFFF"  dot={false}/>
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
   );
 };
 

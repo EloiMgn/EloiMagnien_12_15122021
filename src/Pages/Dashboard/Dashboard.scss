@@ -1,9 +1,10 @@
 .dashboard{
-  width: 100%;
+  width: 90%;
+  margin-left: 5%;
   &__datas{
     display: flex;
     justify-content: space-between;
-    height: 652px;
+    // height: 652px;
     margin-top: 80px;
   }
 }
@@ -13,4 +14,13 @@
   display: flex;
   justify-content: center;
   // align-items: center;
+}
+
+.mainDiv{
+  // display: flex;
+  width: 100%;
+  &__inner{
+    display: flex;
+    // width: 100%;
+  }
 }

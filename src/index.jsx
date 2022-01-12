@@ -8,7 +8,7 @@ import Routing from './Router/Router';
 // fetchMockedData();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.StrictMode >
     <Routing />
   </React.StrictMode>,
   document.getElementById('root')

@@ -48,9 +48,9 @@ const Dashboard = () => {
 
   if (user){
       return (
-        <div>
-          <Header id={id}/>
         <div className='mainDiv'>
+          <Header id={id}/>
+        <div className='mainDiv__inner'>
           <VerticalNav id={id}/>
         <div className="dashboard">
           <DashboardHeader userFirstName={user.userInfos.firstName}/>

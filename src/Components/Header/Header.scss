@@ -17,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 100%;
     
 
     &-link {
@@ -30,7 +30,7 @@
       display: flex;
       text-align: right;
       color: #FFFFFF;
-      margin-right: 90px;
+      margin: auto;
   
       &:hover {
         text-decoration: underline;

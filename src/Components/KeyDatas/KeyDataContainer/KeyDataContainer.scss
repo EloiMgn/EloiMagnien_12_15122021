@@ -2,11 +2,16 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 258px;
+
   height: 124px;
   background: #FBFBFB;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
   border-radius: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+  @media screen and (max-width:1024px){ 
+  width: 100%;  
+}
 
   &__icon {
     z-index: 0;
