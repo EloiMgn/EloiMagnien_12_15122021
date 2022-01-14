@@ -4,7 +4,7 @@ import './DashboardHeader.scss';
 /**
  * Return react component DashboardHeader depending on the user's name
  * @param { string } userFirstName 
- * @returns { HTMLElement } 
+ * @returns { JSX.Element } 
  */
 const DashboardHeader = ({userFirstName}) => (
 				<div className='dashboardHeader'>

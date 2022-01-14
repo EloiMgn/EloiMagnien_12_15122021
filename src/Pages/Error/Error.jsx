@@ -6,7 +6,7 @@ import VerticalNav from '../../Components/VerticalNav/VerticalNav';
 
 /**
  * Return react component Error page in case of wrong path
- * @returns { HTMLElement } 
+ * @returns { JSX.Element } 
  */
 const Error = () => (
 <div>

@@ -9,7 +9,7 @@ import './VerticalNav.scss';
 /**
  * Return react component Verticalnav based on user's id 
  * @param { string } id
- * @returns { HTMLElement } 
+ * @returns { JSX.Element } 
  */
 const VerticalNav = ({id}) => {
 if(id) {

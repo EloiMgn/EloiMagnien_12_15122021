@@ -12,7 +12,7 @@ import Apple from '../../utils/Assets/apple.svg';
  * @param { number } keyDataProtein
  * @param { number } keyDataLipids
  * @param { number } keyDataCarbohydrates
- * @returns { HTMLElement } 
+ * @returns { JSX.Element } 
  */
 const KeyDatas = ({keyDataCalories, keyDataProtein, keyDataLipids, keyDataCarbohydrates}) => (
     <div className='keyData__container'>

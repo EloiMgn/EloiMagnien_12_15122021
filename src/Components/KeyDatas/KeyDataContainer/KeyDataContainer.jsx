@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * @param { string } name
  * @param { string } unit
  * @param { string } iconName
- * @returns { HTMLElement } 
+ * @returns { JSX.Element } 
  */
 const KeyDataContainer = ({data, icon, name, unit, iconName}) => (
       <div className='keyData'>

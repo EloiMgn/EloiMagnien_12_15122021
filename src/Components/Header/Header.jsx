@@ -7,7 +7,7 @@ import Dropdown from '../Dropdown/Dropdown';
 /**
  * Return react component Header based on user's id
  * @param { string } id
- * @returns { HTMLElement } 
+ * @returns { JSX.Element } 
  */
 const Header = ({id}) => {
 if(id){

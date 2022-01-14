@@ -70,7 +70,10 @@ const newPerfs =[];
 };
 
 Perfs.propTypes = {
-  userPerfs: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  userPerfs: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]).isRequired,
 };
 
 export default Perfs;

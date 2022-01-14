@@ -15,7 +15,7 @@ const CustomTooltip = ({ active, payload}) => {
 };
 
 CustomTooltip.propTypes = {
-  payload: PropTypes.oneOfType([PropTypes.object]),
+  payload: PropTypes.oneOfType([PropTypes.array,]),
   active: PropTypes.bool,
 };
 
@@ -60,8 +60,8 @@ const weekDays = [
 
 /**
  * Return react component Objective lineChart based on the user's weekly sessions
- * @param {Object} userSessions 
- * @returns {HTMLElement}
+ * @param { object } userSessions 
+ * @returns { JSX.Element }
  */
 const Objectives = ({userSessions}) => {
   const sessions = [];
@@ -109,7 +109,10 @@ const Objectives = ({userSessions}) => {
 };
 
 Objectives.propTypes = {
-  userSessions: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  userSessions: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string,
+  ]).isRequired,
 };
 
 export default Objectives;

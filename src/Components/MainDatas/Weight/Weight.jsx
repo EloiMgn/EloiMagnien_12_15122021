@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import './Weight.scss';
 
 /**
@@ -22,14 +22,14 @@ const CustomTooltip = ({ payload, active }) => {
 };
 
 CustomTooltip.propTypes = {
-  payload: PropTypes.oneOfType([PropTypes.object]),
+  payload: PropTypes.oneOfType([PropTypes.array,]),
   active: PropTypes.bool,
 };
 
 /**
  * Return react component barChart based on user's weight
  * @param { object } userActivity 
- * @returns {HTMLElement} 
+ * @returns { JSX.Element } 
  */
 const Weight = ({userActivity}) => {
   const data = [];
@@ -81,7 +81,10 @@ const Weight = ({userActivity}) => {
 };
 
 Weight.propTypes = {
-  userActivity: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  userActivity: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string,
+  ]).isRequired,
 };
 
 export default Weight;

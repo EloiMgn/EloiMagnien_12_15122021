@@ -5,14 +5,14 @@ import './Dashboard.scss';
 import DashboardHeader from '../../Components/DashboardHeader/DashboardHeader';
 import MainDatas from '../../Components/MainDatas/MainDatas';
 import KeyDatas from '../../Components/KeyDatas/KeyDatas';
-import fetchMockedData from '../../utils/utils';
+import fetchData from '../../utils/utils';
 import Welcome from '../Welcome/Welcome';
 import Header from '../../Components/Header/Header';
 import VerticalNav from '../../Components/VerticalNav/VerticalNav';
 
 /**
  * Return react component Dashboard based on user's id 
- * @returns { HTMLElement } 
+ * @returns { JSX.Element } 
  */
 const Dashboard = () => {
   const [user, setUser] = useState('');
@@ -24,17 +24,18 @@ const Dashboard = () => {
 
   /**
    * Check if "id" is valid, launch fetch datas from API and set states values
+   * @returns { void } 
    */
-  const fetchData = async() => {
+  const launchFetchData = async() => {
 
     const regex= /[0-9]{1,3}-[A-Z]?[a-z]*/;
 
    if(id.search(regex) >= 0) {
      const idx = id.split('-', 1);
-     const userData = await fetchMockedData(`/user/${idx}`); 
-     const userActivity = await fetchMockedData(`/user/${idx}/activity`);
-     const userSessions = await fetchMockedData(`/user/${idx}/average-sessions`);
-     const userPerfs = await fetchMockedData(`/user/${idx}/performance`);
+     const userData = await fetchData(`/user/${idx}`); 
+     const userActivity = await fetchData(`/user/${idx}/activity`);
+     const userSessions = await fetchData(`/user/${idx}/average-sessions`);
+     const userPerfs = await fetchData(`/user/${idx}/performance`);
          setUser(userData.data);  
          setActivity(userActivity.data.sessions);
          setSessions(userSessions.data.sessions);
@@ -43,7 +44,7 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    launchFetchData();
   }, [id]);
 
   if (user){

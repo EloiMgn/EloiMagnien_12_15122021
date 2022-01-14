@@ -4,7 +4,7 @@ import './Welcome.scss';
 
 /**
  * Return react component Welcome page for the landing path
- * @returns { HTMLElement } 
+ * @returns { JSX.Element } 
  */
 const Welcome = () => (
   <div className='welcome'>

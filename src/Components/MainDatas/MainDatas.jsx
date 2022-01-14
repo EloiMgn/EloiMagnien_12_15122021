@@ -25,9 +25,18 @@ const MainDatas = ({userActivity, userSessions, userPerfs, userScore}) => (
   );
 
   MainDatas.propTypes = {
-    userActivity: PropTypes.oneOfType([PropTypes.object]).isRequired,
-    userSessions: PropTypes.oneOfType([PropTypes.object]).isRequired,
-    userPerfs: PropTypes.oneOfType([PropTypes.object]).isRequired,
+    userActivity: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string,
+    ]).isRequired,
+    userSessions: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string,
+    ]).isRequired,
+    userPerfs: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string,
+    ]).isRequired,
     userScore: PropTypes.number.isRequired,
   };
 

@@ -1,6 +1,10 @@
 
-
-const fetchMockedData = async (request) => {
+/**
+ * 
+ * @param { string } request 
+ * @returns { Object } Fetch Result object if succeed, else return 404 and log error
+ */
+const fetchData = async (request) => {
 	try {
 		if(request) {
 			const url = 'http://localhost:8080';
@@ -14,4 +18,4 @@ const fetchMockedData = async (request) => {
 return 404;
 };
 
-export default fetchMockedData;
+export default fetchData;

@@ -4,6 +4,10 @@ import Dashboard from '../Pages/Dashboard/Dashboard';
 import Welcome from '../Pages/Welcome/Welcome';
 import Error from '../Pages/Error/Error';
 
+/**
+ * 
+ * @returns { void } 
+ */
 const Routing = () => (
     <Router className="index">
       <Routes>

@@ -5,7 +5,7 @@ import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 /**
  * Return react component KPI radialChart depending on the user's score
  * @param { Number } userScore Score of the user objective
- * @returns { HTMLElement }
+ * @returns { JSX.Element }
  */
 const KPI = ({userScore}) => {
 

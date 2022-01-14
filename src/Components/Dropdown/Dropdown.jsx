@@ -3,7 +3,7 @@ import './Dropdown.scss';
 
 /**
  * Return react component Dropdown 
- * @returns { HTMLElement } 
+ * @returns { JSX.Element } 
  */
 const Dropdown = () => (
     <nav className="header__mainNav-link dropdown__link">
