@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8671c77c.css",
+    "main.js": "/static/js/main.808f4f53.js",
+    "static/media/logo.svg": "/static/media/logo.91308fbcbce811907c09885e1241b59f.svg",
+    "static/media/swim_icon.svg": "/static/media/swim_icon.c135dfed9473b0728721ce9a4c20819a.svg",
+    "static/media/cycle_icon.svg": "/static/media/cycle_icon.22f466fe8b96cfda1498781030e75542.svg",
+    "static/media/apple.svg": "/static/media/apple.4821d090cbb241833396de23c433afdb.svg",
+    "index.html": "/index.html",
+    "static/media/yoga_icon.svg": "/static/media/yoga_icon.e6da2f731117475422a8c38c6684702f.svg",
+    "static/media/chicken.svg": "/static/media/chicken.75051c1665b940bb3dc5f760ba41ff60.svg",
+    "static/media/cheeseburger.svg": "/static/media/cheeseburger.27ce32674148dab385abc4be5a4fcec6.svg",
+    "static/media/energy.svg": "/static/media/energy.b8c276e93e1df6b1691a9b5fe7fc5450.svg",
+    "static/media/dumbbell_icon.svg": "/static/media/dumbbell_icon.c9f62cf1ca88da4b2dee77390edd0fe3.svg",
+    "main.8671c77c.css.map": "/static/css/main.8671c77c.css.map",
+    "main.808f4f53.js.map": "/static/js/main.808f4f53.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8671c77c.css",
+    "static/js/main.808f4f53.js"
+  ]
+}
