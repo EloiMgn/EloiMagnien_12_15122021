@@ -24,8 +24,8 @@
 
   &__description {
     position: absolute;
-    top: 60px;
-    left: 70px;
+    top: 80px;
+    left: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,6 +37,11 @@
     line-height: 100%;
     text-align: center;
     max-width: 95px;
+    @media screen and (max-width:1024px){ 
+      top: 80px;
+      left: 30px;
+      font-size: 15px;
+    }
 
     &__percent {
       color: #282D30;

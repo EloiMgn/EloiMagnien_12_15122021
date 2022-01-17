@@ -1,0 +1,18 @@
+#loading {
+  width: 5rem;
+  height: 5rem;
+  border: 10px solid #74798C;
+  border-top: 10px solid #FF0101;
+  border-radius: 100%;
+  margin: auto;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
