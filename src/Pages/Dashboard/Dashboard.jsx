@@ -6,9 +6,11 @@ import DashboardHeader from '../../Components/DashboardHeader/DashboardHeader';
 import MainDatas from '../../Components/MainDatas/MainDatas';
 import KeyDatas from '../../Components/KeyDatas/KeyDatas';
 import fetchData from '../../utils/utils';
+
 import Header from '../../Components/Header/Header';
 import VerticalNav from '../../Components/VerticalNav/VerticalNav';
 import Loading from '../Loading/Loading';
+
 /**
  * Return react component Dashboard based on user's id 
  * @returns { JSX.Element } 

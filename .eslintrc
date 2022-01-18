@@ -39,7 +39,14 @@
     "click-events-have-key-events": 0,
     "react-hooks/exhaustive-deps": 0,
     "react/require-default-props": 0,
-    "react/forbid-prop-types": 0
-
+    "react/forbid-prop-types": 0,
+    "no-console": "off",
+        "no-restricted-syntax": [
+            "error",
+            {
+                "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+                "message": "Unexpected property on console object was called"
+            }
+        ]
   }
 }
