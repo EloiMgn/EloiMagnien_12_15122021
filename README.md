@@ -12,4 +12,5 @@ Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
 
 3. In the root directory "eloimagnien_12_15122021", run `npm start`
 This script runs the application in the developement mode on the port 3000.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser. 
+<!-- if the port 3000  -->
