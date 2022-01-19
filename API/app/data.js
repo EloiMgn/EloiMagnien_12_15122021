@@ -29,7 +29,7 @@ const USER_MAIN_DATA = [
             lipidCount: 120
         }
     }
-]
+];
 
 const USER_ACTIVITY = [
     {
@@ -112,7 +112,7 @@ const USER_ACTIVITY = [
             }
         ]
     }
-]
+];
 
 
 const USER_AVERAGE_SESSIONS = [
@@ -182,7 +182,7 @@ const USER_AVERAGE_SESSIONS = [
             }
         ]
     }
-]
+];
 
 
 const USER_PERFORMANCE = [
@@ -260,7 +260,7 @@ const USER_PERFORMANCE = [
             }
         ]
     }
-]
+];
 
 
 
@@ -269,4 +269,4 @@ module.exports = {
     USER_ACTIVITY,
     USER_AVERAGE_SESSIONS,
     USER_PERFORMANCE
-}
+};

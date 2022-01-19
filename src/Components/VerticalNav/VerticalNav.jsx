@@ -9,17 +9,18 @@ import './VerticalNav.scss';
 /**
  * Return react component Verticalnav based on user's id 
  * @param { string } id
+ * @param { string } name
  * @returns { JSX.Element } 
  */
-const VerticalNav = ({id}) => {
+const VerticalNav = ({id, name}) => {
 if(id) {
   return (
       <div className="verticalNav">
         <div className='verticalNav__nav'>
-          <Link to={`/${id}/yoga`} className='yoga verticalNav__nav-link'><img src={Yoga} alt="Yoga logo" /></Link>
-          <Link to={`/${id}/swimming`} className='swiming verticalNav__nav-link'><img src={Swim} alt="Swimming logo" /></Link>
-          <Link to={`/${id}/bicyle`} className='bicyle verticalNav__nav-link'><img src={Cycle} alt="Bicyle logo" /></Link>
-          <Link to={`/${id}/dumbell`} className='dumbbell verticalNav__nav-link'><img src={Dumbbell} alt="Dumbbell logo" /></Link>
+          <Link to={`/${id}/${name}/yoga`} className='yoga verticalNav__nav-link'><img src={Yoga} alt="Yoga logo" /></Link>
+          <Link to={`/${id}/${name}/swimming`} className='swiming verticalNav__nav-link'><img src={Swim} alt="Swimming logo" /></Link>
+          <Link to={`/${id}/${name}/bicyle`} className='bicyle verticalNav__nav-link'><img src={Cycle} alt="Bicyle logo" /></Link>
+          <Link to={`/${id}/${name}/dumbell`} className='dumbbell verticalNav__nav-link'><img src={Dumbbell} alt="Dumbbell logo" /></Link>
         </div>
         <p className='verticalNav__copyrights'>Copyrights, SportSee 2022</p>
       </div>
@@ -30,6 +31,7 @@ if(id) {
 
 VerticalNav.propTypes = {
   id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default VerticalNav;

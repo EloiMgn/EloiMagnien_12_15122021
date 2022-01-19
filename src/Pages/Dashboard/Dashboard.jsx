@@ -10,6 +10,7 @@ import fetchData from '../../utils/utils';
 import Header from '../../Components/Header/Header';
 import VerticalNav from '../../Components/VerticalNav/VerticalNav';
 import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
 /**
  * Return react component Dashboard based on user's id 
@@ -20,23 +21,20 @@ const Dashboard = () => {
   const [activity, setActivity] = useState('');
   const [sessions, setSessions] = useState('');
   const [perfs, setPerfs] = useState('');
+  const [error, setError] = useState(false);
 
-  const { id } = useParams();
+  const { id, name } = useParams();
 
   /**
    * Check if "id" is valid, launch fetch datas from API and set states values
    * @returns { void } 
    */
   const launchFetchData = async() => {
-
-    const regex= /[0-9]{1,3}-[A-Z]?[a-z]*/;
-
-   if(id.search(regex) >= 0) {
-     const idx = id.split('-', 1);
-     const userData = await fetchData(`/user/${idx}`); 
-     const userActivity = await fetchData(`/user/${idx}/activity`);
-     const userSessions = await fetchData(`/user/${idx}/average-sessions`);
-     const userPerfs = await fetchData(`/user/${idx}/performance`);
+   if(id) {
+     const userData = await fetchData(`/user/${id}`); 
+     const userActivity = await fetchData(`/user/${id}/activity`);
+     const userSessions = await fetchData(`/user/${id}/average-sessions`);
+     const userPerfs = await fetchData(`/user/${id}/performance`);
          setUser(userData.data);  
          setActivity(userActivity.data.sessions);
          setSessions(userSessions.data.sessions);
@@ -45,36 +43,49 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
+    setError(false);
     launchFetchData();
   }, [id]);
 
+  useEffect(() => {
+    if(user){
+      if(user.userInfos.firstName !== name){
+        setError(true);
+      }
+    }
+  }, [user]);
+
   if (user){
+    if (error) {
+      return <Error />; 
+    }
       return (
         <div className='mainDiv'>
-          <Header id={id}/>
-        <div className='mainDiv__inner'>
-          <VerticalNav id={id}/>
-        <div className="dashboard">
-          <DashboardHeader userFirstName={user.userInfos.firstName}/>
-          <div className='dashboard__datas'>
-          <MainDatas 
-          userActivity={activity}
-          userSessions={sessions}
-          userPerfs={perfs}
-          userScore={user.score}
-          />
-          <KeyDatas 
-          keyDataCalories={user.keyData.calorieCount} 
-          keyDataProtein={user.keyData.proteinCount} 
-          keyDataLipids={user.keyData.lipidCount} 
-          keyDataCarbohydrates={user.keyData.carbohydrateCount} 
-          />
+          <Header id={id} name={name}/>
+          <div className='mainDiv__inner'>
+            <VerticalNav id={id} name={name}/>
+            <div className="dashboard">
+              <DashboardHeader userFirstName={user.userInfos.firstName}/>
+              <div className='dashboard__datas'>
+                <MainDatas 
+                userActivity={activity}
+                userSessions={sessions}
+                userPerfs={perfs}
+                userScore={user.score}
+                />
+                <KeyDatas 
+                keyDataCalories={user.keyData.calorieCount} 
+                keyDataProtein={user.keyData.proteinCount} 
+                keyDataLipids={user.keyData.lipidCount} 
+                keyDataCarbohydrates={user.keyData.carbohydrateCount} 
+                />
+              </div>
+            </div>
           </div>
         </div>
-        </div>
-        </div>
       );
-    } return (
+    } 
+    return (
       <div className='loadingPage'>
         <Loading />
       </div>

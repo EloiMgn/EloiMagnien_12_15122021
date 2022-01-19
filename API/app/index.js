@@ -1,11 +1,12 @@
-const express = require('express')
-const cors = require('cors')
-const router = require('./routes')
-const app = express()
-const port = 8080
+const express = require('express');
+const cors = require('cors');
+const router = require('./routes');
 
-app.use(cors())
-app.use(router)
+const app = express();
+const port = 8080;
 
-app.listen(port, () => console.log(`Magic happens on port ${port}`))
+app.use(cors());
+app.use(router);
+
+app.listen(port, () => console.log(`Magic happens on port ${port}`));
 

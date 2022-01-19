@@ -12,8 +12,8 @@ const Welcome = () => (
     Bienvenue sur votre Tableau de bord <strong>SportSee</strong>, veuillez vous identifiez :
     </div>
     <div className='welcome__links'>
-    <Link to="/12-Karl" className='welcome__links__link'>Karl</Link>
-    <Link to="/18-Cecilia" className='welcome__links__link'>Cecilia</Link>
+    <Link to="/12/Karl" className='welcome__links__link'>Karl</Link>
+    <Link to="/18/Cecilia" className='welcome__links__link'>Cecilia</Link>
     </div>
   </div>
   );

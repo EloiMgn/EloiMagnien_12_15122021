@@ -12,8 +12,8 @@ const Routing = () => (
     <Router className="index">
       <Routes>
         <Route exact path="/" element={<Welcome />} />
-        <Route path="/:id" element={<Dashboard />} />
-        <Route path="/:id/*" element={<Error />} />
+        <Route path="/:id/:name" element={<Dashboard />} />
+        <Route path="/:id/:name/*" element={<Error />} />
       </Routes>
   </Router>
   );

@@ -3,7 +3,7 @@ const {
     USER_ACTIVITY,
     USER_AVERAGE_SESSIONS,
     USER_PERFORMANCE
-} = require('./data')
+} = require('./data');
 
 /**
  * @description Retrieve the main user info (first name, last name, today score)
@@ -11,7 +11,7 @@ const {
  */
 const getUserById = id => USER_MAIN_DATA
     .filter(user => user.id === id)
-    .shift()
+    .shift();
 
 
 /**
@@ -19,7 +19,7 @@ const getUserById = id => USER_MAIN_DATA
  */
 const getUserActivityById = id => USER_ACTIVITY
     .filter(userActivity => userActivity.userId === id)
-    .shift()
+    .shift();
 
 
 /**
@@ -27,7 +27,7 @@ const getUserActivityById = id => USER_ACTIVITY
  */
 const getUserAverageSession = id => USER_AVERAGE_SESSIONS
     .filter(userActivity => userActivity.userId === id)
-    .shift()
+    .shift();
 
 
 /**
@@ -35,11 +35,11 @@ const getUserAverageSession = id => USER_AVERAGE_SESSIONS
  */
 const getUserPerformance = id => USER_PERFORMANCE
     .filter(userPerformance => userPerformance.userId === id)
-    .shift()
+    .shift();
 
 module.exports = {
     getUserById,
     getUserActivityById,
     getUserAverageSession,
     getUserPerformance
-}
+};
