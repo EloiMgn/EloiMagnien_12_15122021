@@ -39,13 +39,14 @@ const Dashboard = () => {
          setActivity(userActivity.data.sessions);
          setSessions(userSessions.data.sessions);
          setPerfs(userPerfs.data);
-   } 
-  };
+      } 
+    };
+    
+    useEffect(() => {
+      setError(false);
+      launchFetchData();
 
-  useEffect(() => {
-    setError(false);
-    launchFetchData();
-  }, [id]);
+    }, [id]);
 
   useEffect(() => {
     if(user){

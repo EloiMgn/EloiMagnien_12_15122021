@@ -42,7 +42,12 @@ const titles= [
  */
 const Perfs = ({userPerfs}) => {
 const newPerfs =[];
-  const PerfsKindsChanger = () => {
+/**
+ * this function change the kind number of the received object to 
+ * a kind name 
+ * @return { void }
+ */
+const PerfsKindsChanger = () => {
     if(userPerfs){
       userPerfs.data.forEach(element => {
         for (let i = 0; i < titles.length; i++) {
@@ -54,18 +59,18 @@ const newPerfs =[];
     }
   };
   
-
   PerfsKindsChanger();
+
   return (
-    // <div className='performances secundaryCharts'>
-    <ResponsiveContainer className='performances secundaryCharts' width='100%' height='100%'>
+    <div className='performances secundaryCharts'>
+    <ResponsiveContainer width='100%' height='100%'>
       <RadarChart fill="#FFFFFF" width={258} height={263} cx="50%" cy="50%" outerRadius="50%" data={newPerfs}>
         <PolarGrid />
         <PolarAngleAxis dataKey="kind" />
         <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} />
       </RadarChart>
       </ResponsiveContainer>
-    // </div>
+    </div>
   );
 };
 

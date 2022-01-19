@@ -1,8 +1,8 @@
 .performances{
-  max-width: 258px;
+  width: 258px;
   max-height: 263px;
   @media screen and (max-width:1024px){ 
-    max-width: 200px;
+    min-width: 200px;
     max-height: 230px;
   }
   background: #282D30;
