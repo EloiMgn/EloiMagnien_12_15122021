@@ -3,7 +3,30 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 import  useFetch  from '../../../utils/utils';
 import './Weight.scss';
 
-
+    /**
+     * Return react component Tooltip if selection is active
+     * @param { object } payload 
+     * @param { boolean } active 
+     * @returns {HTMLElement} 
+     */
+    // eslint-disable-next-line react/no-unstable-nested-components
+    const CustomTooltip = ({ payload, active }) => {
+      if (active && payload) {
+        return (
+          <div className="custom-tooltip">
+            <p className="poid">{`${payload[0].value}kg`}</p>
+            <p className="calories">{`${payload[1].value}Kcal`}</p>
+          </div>
+        );
+      }
+    
+      return null;
+    };
+    
+    CustomTooltip.propTypes = {
+      payload: PropTypes.oneOfType([PropTypes.array,]),
+      active: PropTypes.bool,
+    };
 
 /**
  * Return react component barChart based on user's weight
@@ -11,31 +34,6 @@ import './Weight.scss';
  * @returns { JSX.Element } 
  */
 const Weight = ({id}) => {
-
-  /**
- * Return react component Tooltip if selection is active
- * @param { object } payload 
- * @param { boolean } active 
- * @returns {HTMLElement} 
- */
-// eslint-disable-next-line react/no-unstable-nested-components
-const CustomTooltip = ({ payload, active }) => {
-  if (active) {
-    return (
-      <div className="custom-tooltip">
-        <p className="poid">{`${payload[0].value}kg`}</p>
-        <p className="calories">{`${payload[1].value}Kcal`}</p>
-      </div>
-    );
-  }
-
-  return null;
-};
-
-CustomTooltip.propTypes = {
-  payload: PropTypes.oneOfType([PropTypes.array,]),
-  active: PropTypes.bool,
-};
   const { data } = useFetch(`/user/${id}/activity`);
   const userActivity = [];
 

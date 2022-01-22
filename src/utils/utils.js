@@ -4,11 +4,9 @@ import {
 } from 'react';
 
 /**
- * 
  * @param { string } url 
  * @returns { Object } Fetch Result object if succeed, else return 404 and log error
  */
-
 const useFetch = (url) => {
 
 	const [data, setData] = useState('');
