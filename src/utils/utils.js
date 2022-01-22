@@ -1,4 +1,4 @@
-
+import { useState, useEffect } from 'react';
 
 /**
  * 
@@ -20,4 +20,42 @@ return 404;
 };
 
 export default fetchData;
+ 
 
+// const useFetch = (url) => {
+
+// const [data, setData] = useState({});
+
+// const [isLoading, setLoading] = useState(true);
+
+ 
+
+// useEffect(() => {
+
+// if (!url) return;
+
+// async function fetchData() {
+
+// const response = await fetch(url);
+
+// const receivedData = await response.json();
+
+// setData(receivedData);
+
+// setLoading(false);
+
+// }
+
+// setLoading(true);
+
+// fetchData();
+
+// }, [url]);
+
+ 
+
+// return { isLoading, data };
+
+// };
+
+// export default useFetch;
