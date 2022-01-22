@@ -1,43 +1,34 @@
 import PropTypes from 'prop-types';
 import './MainDatas.scss';
+// import Loading from '../../Pages/Loading/Loading';
 import Weight from './Weight/Weight';
 import Objectives from './Objectives/Objectives';
 import Perfs from './Perfs/Perfs';
 import KPI from './KPI/KPI';
 
 /**
- * Return react component MainDatas 
- * @param { object } userActivity
- * @param { object } userSessions
- * @param { object } userPerfs
- * @param { number } userScore
- * @returns { JSX.Element } 
- */
-const MainDatas = ({userActivity, userSessions, userPerfs, userScore}) => (
-    <div className='mainDatas'>
-      <Weight userActivity={userActivity} />
-      <div className='mainDatas__secundaryCharts'>
-        <Objectives userSessions={userSessions} />
-        <Perfs userPerfs={userPerfs} />
-        <KPI userScore={userScore}/>
+* Return react component MainDatas
+* @param { string } userId
+* @returns { JSX.Element }
+*/
+const MainDatas = ({userId}) => {
+  if(userId) {
+    return (
+      <div className='mainDatas'>
+        <Weight id={userId} />
+        <div className='mainDatas__secundaryCharts'>
+          <Objectives id={userId} />
+          <Perfs id={userId} />
+          <KPI id={userId} /> 
+        </div>
       </div>
-    </div>
-  );
+    );
+  } return null;
+};
 
-  MainDatas.propTypes = {
-    userActivity: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string,
-    ]).isRequired,
-    userSessions: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string,
-    ]).isRequired,
-    userPerfs: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string,
-    ]).isRequired,
-    userScore: PropTypes.number.isRequired,
-  };
+
+MainDatas.propTypes = {
+userId: PropTypes.string.isRequired,
+};
 
 export default MainDatas;

@@ -1,61 +1,44 @@
-import { useState, useEffect } from 'react';
+import {
+	useState,
+	useEffect
+} from 'react';
 
 /**
  * 
- * @param { string } request 
+ * @param { string } url 
  * @returns { Object } Fetch Result object if succeed, else return 404 and log error
  */
-const fetchData = async (request) => {
-	try {
-		if(request) {
-			const url = 'http://localhost:8080';
-			const data = await fetch(url + request);
-			const dataObj = await data.json();
-			return dataObj;
-		} return 404;
-	} catch (error) {
-		console.error(error);
-	}
-return 404;
+
+const useFetch = (url) => {
+
+	const [data, setData] = useState('');
+	const [isLoading, setLoading] = useState(true);
+	const [error, setError] = useState(false);
+
+	useEffect(() => {
+		if (!url) return;
+		setLoading(true);
+		async function fetchData() {
+			try {
+				const response = await fetch(`http://localhost:8080${url}`);
+				const receivedData = await response.json();
+				setData(receivedData);
+			} catch (err) {
+				console.log(err);
+				setError(true);
+			} finally {
+				setLoading(false);
+			}
+		}
+		fetchData();
+	}, [url]);
+
+	return {
+		isLoading,
+		data,
+		error
+	};
+
 };
 
-export default fetchData;
- 
-
-// const useFetch = (url) => {
-
-// const [data, setData] = useState({});
-
-// const [isLoading, setLoading] = useState(true);
-
- 
-
-// useEffect(() => {
-
-// if (!url) return;
-
-// async function fetchData() {
-
-// const response = await fetch(url);
-
-// const receivedData = await response.json();
-
-// setData(receivedData);
-
-// setLoading(false);
-
-// }
-
-// setLoading(true);
-
-// fetchData();
-
-// }, [url]);
-
- 
-
-// return { isLoading, data };
-
-// };
-
-// export default useFetch;
+export default useFetch;

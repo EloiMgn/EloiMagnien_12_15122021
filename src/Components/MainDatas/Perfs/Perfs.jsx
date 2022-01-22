@@ -1,6 +1,7 @@
 import './Perfs.scss';
 import PropTypes from 'prop-types';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
+import  useFetch  from '../../../utils/utils';
 
 
 const titles= [  
@@ -40,7 +41,9 @@ const titles= [
  * @param { object } userPerfs 
  * @returns { JSX.Element } 
  */
-const Perfs = ({userPerfs}) => {
+const Perfs = ({id}) => {
+const { data } = useFetch(`/user/${id}/performance`);
+
 const newPerfs =[];
 /**
  * this function change the kind number of the received object to 
@@ -48,10 +51,10 @@ const newPerfs =[];
  * @return { void }
  */
 const PerfsKindsChanger = () => {
-    if(userPerfs){
-      userPerfs.data.forEach(element => {
+    if(data.data){
+      data.data.data.forEach(element => {
         for (let i = 0; i < titles.length; i++) {
-          if(userPerfs.kind[element.kind] === titles[i].eng) {
+          if(data.data.kind[element.kind] === titles[i].eng) {
             newPerfs.push({value: element.value, kind: titles[i].fr});
           }
         }
@@ -75,10 +78,7 @@ const PerfsKindsChanger = () => {
 };
 
 Perfs.propTypes = {
-  userPerfs: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]).isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default Perfs;

@@ -3,12 +3,22 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 import  useFetch  from '../../../utils/utils';
 import './Weight.scss';
 
+
+
 /**
+ * Return react component barChart based on user's weight
+ * @param { object } userActivity 
+ * @returns { JSX.Element } 
+ */
+const Weight = ({id}) => {
+
+  /**
  * Return react component Tooltip if selection is active
  * @param { object } payload 
  * @param { boolean } active 
  * @returns {HTMLElement} 
  */
+// eslint-disable-next-line react/no-unstable-nested-components
 const CustomTooltip = ({ payload, active }) => {
   if (active) {
     return (
@@ -26,24 +36,17 @@ CustomTooltip.propTypes = {
   payload: PropTypes.oneOfType([PropTypes.array,]),
   active: PropTypes.bool,
 };
-
-/**
- * Return react component barChart based on user's weight
- * @param { object } userActivity 
- * @returns { JSX.Element } 
- */
-const Weight = ({userActivity}) => {
-  // const { data, isLoading } = useFetch(`/user/${id}/activity`)
-  const data = [];
+  const { data } = useFetch(`/user/${id}/activity`);
+  const userActivity = [];
 
     /**
    * Function that change day index to the index of the day itself
    * @returns { void }
    */
   const modifyDay = () => {
-    if(userActivity){
-      userActivity.forEach(element => {
-        data.push({
+    if(data.data){
+      data.data.sessions.forEach(element => {
+        userActivity.push({
           day: `${element.day.split('-')[2].split('')[1]}`, 
           kilogram: element.kilogram, 
           calories: element.calories
@@ -52,6 +55,7 @@ const Weight = ({userActivity}) => {
     }
   };
   modifyDay();
+if(id) {
 
   return (
       <div className='weightChart'>
@@ -60,7 +64,7 @@ const Weight = ({userActivity}) => {
         <BarChart
             width={650}
             height={330}
-            data={data}
+            data={userActivity}
             margin={{
               top: 5,
               right: 30,
@@ -81,13 +85,11 @@ const Weight = ({userActivity}) => {
       </div>
       
     );
+  } return null;
 };
 
 Weight.propTypes = {
-  userActivity: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string,
-  ]).isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default Weight;
