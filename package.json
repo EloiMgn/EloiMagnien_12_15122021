@@ -29,15 +29,14 @@
     "sass": "^1.44.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=8000 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "launchApp": "concurrently \"cd ./API && yarn start\" \"npm start\""
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

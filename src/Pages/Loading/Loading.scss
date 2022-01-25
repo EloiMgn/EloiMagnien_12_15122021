@@ -16,3 +16,11 @@
       transform: rotate(360deg);
   }
 }
+
+.loading{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

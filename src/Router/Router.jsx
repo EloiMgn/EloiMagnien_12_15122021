@@ -13,7 +13,7 @@ const Routing = () => (
       <Routes>
         <Route exact path="/" element={<Welcome />} />
         <Route path="/:id/:name" element={<Dashboard />} />
-        <Route path="/:id/:name/*" element={<Error />} />
+        <Route path="/:id/:name/*" element={<Error error={404}/>} />
       </Routes>
   </Router>
   );

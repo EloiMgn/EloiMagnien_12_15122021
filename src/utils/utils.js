@@ -8,7 +8,7 @@
 const fetchData = async (request) => {
 	try {
 		if(request) {
-			const url = 'http://localhost:8080';
+			const url = 'http://localhost:3000';
 			const data = await fetch(url + request);
 			const dataObj = await data.json();
 			return dataObj;
@@ -59,3 +59,5 @@ export default fetchData;
 // };
 
 // export default useFetch;
+
+

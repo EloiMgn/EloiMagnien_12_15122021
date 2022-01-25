@@ -22,7 +22,8 @@ const Dashboard = () => {
   const [activity, setActivity] = useState('');
   const [sessions, setSessions] = useState('');
   const [perfs, setPerfs] = useState('');
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const { id, name } = useParams();
 
@@ -36,6 +37,8 @@ const Dashboard = () => {
      const userActivity = await fetchData(`/user/${id}/activity`);
      const userSessions = await fetchData(`/user/${id}/average-sessions`);
      const userPerfs = await fetchData(`/user/${id}/performance`);
+     setLoading(false);
+     setError(503);
          setUser(userData.data);  
          setActivity(userActivity.data.sessions);
          setSessions(userSessions.data.sessions);
@@ -44,7 +47,7 @@ const Dashboard = () => {
     };
     
     useEffect(() => {
-      setError(false);
+      setError(null);
       launchFetchData();
     }, [id]);
 
@@ -53,14 +56,15 @@ const Dashboard = () => {
   useEffect(() => {
     if(user){
       if(user.userInfos.firstName !== name){
-        setError(true);
+        setError(404);
+        setLoading(false);
       }
     }
   }, [user]);
 
   if (user){
-    if (error) {
-      return <Error />; 
+    if (error === 404) {
+      return <Error error={error}/>; 
     }
       return (
         <div className='mainDiv'>
@@ -88,11 +92,35 @@ const Dashboard = () => {
         </div>
       );
     } 
-    return (
-      <div className='loadingPage'>
-        <Loading />
-      </div>
-    );
+    if(mockedDatas.userDatas.id.toString() === id) {
+      return (
+        <div className='mainDiv'>
+          <Header id={id} name={name}/>
+          <div className='mainDiv__inner'>
+            <VerticalNav id={id} name={name}/>
+            <div className="dashboard">
+              <DashboardHeader userFirstName={mockedDatas.userDatas.userInfos.firstName}/>
+              <div className='dashboard__datas'>
+                <MainDatas 
+                userActivity={mockedDatas.userDatas.userActivity.sessions}
+                userSessions={mockedDatas.userDatas.userSessions.sessions}
+                userPerfs={mockedDatas.userDatas.userPerformances}
+                userScore={mockedDatas.userDatas.score}
+                />
+                <KeyDatas 
+                keyDataCalories={mockedDatas.userDatas.keyData.calorieCount} 
+                keyDataProtein={mockedDatas.userDatas.keyData.proteinCount} 
+                keyDataLipids={mockedDatas.userDatas.keyData.lipidCount} 
+                keyDataCarbohydrates={mockedDatas.userDatas.keyData.carbohydrateCount} 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    } if(loading) {
+      return <Loading/>;
+    } return <Error error={error}/>;
 };
 
 export default Dashboard;
