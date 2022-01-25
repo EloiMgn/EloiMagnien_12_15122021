@@ -1,7 +1,7 @@
 import './Header.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Logo from '../../utils/Assets/logo.svg';
+import Logo from '../../utils/Assets/Img/logo.svg';
 import Dropdown from '../Dropdown/Dropdown';
 
 /**

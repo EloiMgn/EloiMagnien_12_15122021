@@ -11,6 +11,7 @@ import Header from '../../Components/Header/Header';
 import VerticalNav from '../../Components/VerticalNav/VerticalNav';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
+import mockedDatas from '../../utils/Assets/Datas/mockedDatas.json';
 
 /**
  * Return react component Dashboard based on user's id 
@@ -45,8 +46,9 @@ const Dashboard = () => {
     useEffect(() => {
       setError(false);
       launchFetchData();
-
     }, [id]);
+
+
 
   useEffect(() => {
     if(user){

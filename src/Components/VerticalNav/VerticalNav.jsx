@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Yoga from '../../utils/Assets/yoga_icon.svg';
-import Swim from '../../utils/Assets/swim_icon.svg';
-import Cycle from '../../utils/Assets/cycle_icon.svg';
-import Dumbbell from '../../utils/Assets/dumbbell_icon.svg';
+import Yoga from '../../utils/Assets/Img/yoga_icon.svg';
+import Swim from '../../utils/Assets/Img/swim_icon.svg';
+import Cycle from '../../utils/Assets/Img/cycle_icon.svg';
+import Dumbbell from '../../utils/Assets/Img/dumbbell_icon.svg';
 import './VerticalNav.scss';
 
 /**

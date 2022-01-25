@@ -1,10 +1,10 @@
 import './KeyDatas.scss';
 import PropTypes from 'prop-types';
 import KeyDataContainer from './KeyDataContainer/KeyDataContainer';
-import Energy from '../../utils/Assets/energy.svg';
-import Chicken from '../../utils/Assets/chicken.svg';
-import Cheeseburger from '../../utils/Assets/cheeseburger.svg';
-import Apple from '../../utils/Assets/apple.svg';
+import Energy from '../../utils/Assets/Img/energy.svg';
+import Chicken from '../../utils/Assets/Img/chicken.svg';
+import Cheeseburger from '../../utils/Assets/Img/cheeseburger.svg';
+import Apple from '../../utils/Assets/Img/apple.svg';
 
 /**
  * Return react component KeyDatas 

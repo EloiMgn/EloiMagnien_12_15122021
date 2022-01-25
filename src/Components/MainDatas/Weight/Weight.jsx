@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import  useFetch  from '../../../utils/utils';
 import './Weight.scss';
 
 /**
@@ -33,7 +32,6 @@ CustomTooltip.propTypes = {
  * @returns { JSX.Element } 
  */
 const Weight = ({userActivity}) => {
-  // const { data, isLoading } = useFetch(`/user/${id}/activity`)
   const data = [];
 
     /**
